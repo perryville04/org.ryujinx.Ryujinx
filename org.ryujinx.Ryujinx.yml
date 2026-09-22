@@ -25,6 +25,7 @@ modules:
 - name: Ryujinx
   buildsystem: simple
   build-options:
+    share-network: true
     no-debuginfo: true
     no-debuginfo-compression: true
     strip: false
