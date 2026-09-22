@@ -37,9 +37,9 @@ modules:
       DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
       RYUJINX_VERSION: 1.1.1403
-      RYUJINX_TARGET_RELEASE_CHANNEL_OWNER: flathub
+      RYUJINX_TARGET_RELEASE_CHANNEL_OWNER: perryville04
       RYUJINX_TARGET_RELEASE_CHANNEL_REPO: org.ryujinx.Ryujinx
-      RYUJINX_TARGET_RELEASE_CHANNEL_NAME: master
+      RYUJINX_TARGET_RELEASE_CHANNEL_NAME: canary
   build-commands:
   - |
     export PATH=$PATH:/run/build/Ryujinx/dotnet-sdk
@@ -89,8 +89,8 @@ modules:
       pattern: https://dotnetcli.azureedge.net/dotnet/Sdk/^([\d\.a-z-]+)$/dotnet-sdk-^([\d\.a-z-]+)$-linux-arm64.tar.gz
   - nuget_sources.json
   - type: git
-    url: https://github.com/Ryujinx/Ryujinx.git
-    commit: a2c003501371463fd1f98d2e5a7602ae19c21d7c
+    url: https://git.ryujinx.app/projects/Ryubing
+    commit: 475615f0431b4995b03c930c5089d20f6f3570e0
   - type: file
     path: ryujinx-wrapper
   - type: file
