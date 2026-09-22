@@ -7,6 +7,9 @@ add-extensions:
     version: '24.08'
     directory: lib/ffmpeg
     add-ld-path: .
+build-options:
+build-args:
+- --share=network
 finish-args:
 - --share=ipc
 - --socket=x11
