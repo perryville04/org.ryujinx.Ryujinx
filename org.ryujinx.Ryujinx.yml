@@ -53,7 +53,7 @@ modules:
     sed -r --in-place "s/\%\%RYUJINX_TARGET_RELEASE_CHANNEL_REPO\%\%/$RYUJINX_TARGET_RELEASE_CHANNEL_REPO/g;" src/Ryujinx.Common/ReleaseInformation.cs
     sed -r --in-place 's/\%\%RYUJINX_CONFIG_FILE_NAME\%\%/Config\.json/g;' src/Ryujinx.Common/ReleaseInformation.cs
     mkdir -p /app/bin
-    dotnet publish -c Release -r $RUNTIME /p:DebugType=embedded src/Ryujinx /p:Version=$RYUJINX_VERSION /p:SourceRevisionId=$RYUJINX_GIT_SHORT_HASH /p:ExtraDefineConstants="DISABLE_UPDATER" /p:RuntimeFrameworkVersion=$RUNTIME_FRAMEWORK_VERSION --self-contained --source nuget-sources
+    dotnet publish -c Release -r $RUNTIME /p:DebugType=embedded src/Ryujinx /p:Version=$RYUJINX_VERSION /p:SourceRevisionId=$RYUJINX_GIT_SHORT_HASH /p:ExtraDefineConstants="DISABLE_UPDATER" /p:RuntimeFrameworkVersion=$RUNTIME_FRAMEWORK_VERSION /p:UseAppHost=true src/Ryujinx /p:PublishSingleFile=false /p:SelfContained=true /p:PublishTrimmed=false
     if [ $? -ne 0 ]; then
         exit 1;
     fi;
@@ -71,21 +71,21 @@ modules:
     only-arches:
     - x86_64
     dest: dotnet-sdk
-    url: https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.402/dotnet-sdk-8.0.402-linux-x64.tar.gz
+    url: https://dotnetcli.azureedge.net/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-x64.tar.gz
     sha256: 10910e098161a0461b93f4f08d0c310b452b1a7f56b43378f547fd765d6f68bc
     x-checker-data:
       type: rotating-url
-      url: https://aka.ms/dotnet/8.0/dotnet-sdk-linux-x64.tar.gz
+      url: https://aka.ms/dotnet/10.0/dotnet-sdk-linux-x64.tar.gz
       pattern: https://dotnetcli.azureedge.net/dotnet/Sdk/^([\d\.a-z-]+)$/dotnet-sdk-^([\d\.a-z-]+)$-linux-x64.tar.gz
   - type: archive
     only-arches:
     - aarch64
     dest: dotnet-sdk
-    url: https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.402/dotnet-sdk-8.0.402-linux-arm64.tar.gz
+    url: https://dotnetcli.azureedge.net/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-arm64.tar.gz
     sha256: beedeefcd0bee013bed07b813f79dc5c42d2c3745016b3af01ce7742b95c15ec
     x-checker-data:
       type: rotating-url
-      url: https://aka.ms/dotnet/8.0/dotnet-sdk-linux-arm64.tar.gz
+      url: https://aka.ms/dotnet/10.0/dotnet-sdk-linux-arm64.tar.gz
       pattern: https://dotnetcli.azureedge.net/dotnet/Sdk/^([\d\.a-z-]+)$/dotnet-sdk-^([\d\.a-z-]+)$-linux-arm64.tar.gz
   - nuget_sources.json
   - type: git
