@@ -72,7 +72,7 @@ modules:
     - x86_64
     dest: dotnet-sdk
     url: https://dotnetcli.azureedge.net/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-x64.tar.gz
-    sha256: 10910e098161a0461b93f4f08d0c310b452b1a7f56b43378f547fd765d6f68bc
+    sha256: c8793e8a4ca6e3b87bc9127154a878506f49916d21169affe876f95a10b7312c
     x-checker-data:
       type: rotating-url
       url: https://aka.ms/dotnet/10.0/dotnet-sdk-linux-x64.tar.gz
@@ -82,7 +82,7 @@ modules:
     - aarch64
     dest: dotnet-sdk
     url: https://dotnetcli.azureedge.net/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-arm64.tar.gz
-    sha256: beedeefcd0bee013bed07b813f79dc5c42d2c3745016b3af01ce7742b95c15ec
+    sha256: 4f4edaa4214636a0625de8f2351557b2024eae61beff0ac7c77f502d65681d28
     x-checker-data:
       type: rotating-url
       url: https://aka.ms/dotnet/10.0/dotnet-sdk-linux-arm64.tar.gz
