@@ -29,6 +29,7 @@ modules:
     no-debuginfo: true
     no-debuginfo-compression: true
     strip: false
+  filesystem:
     arch:
       x86_64:
         env:
@@ -47,6 +48,7 @@ modules:
   build-commands:
   - |
     export PATH=$PATH:/run/build/Ryujinx/dotnet-sdk
+    export PATH=$PATH:/run/build/Ryujinx/nuget-sources
     export RYUJINX_GIT_SHORT_HASH=$(git rev-parse --short HEAD)
     export RUNTIME_FRAMEWORK_VERSION=$(find nuget-sources -name 'microsoft.netcore.app.runtime.$RUNTIME.*' | grep -oP '(\d.\d.\d+.nupkg)' | grep -oP '(\d.\d.\d+)')
     echo "Runtime framework version: $RUNTIME_FRAMEWORK_VERSION"
@@ -61,7 +63,7 @@ modules:
     if [ $? -ne 0 ]; then
         exit 1;
     fi;
-    cp -r --remove-destination /run/build/Ryujinx/src/Ryujinx/bin/Release/net8.0/$RUNTIME/publish/* /app/bin/
+    cp -r --remove-destination /run/build/Ryujinx/src/Ryujinx/bin/Release/net10.0/$RUNTIME/publish/* /app/bin/
     chmod +x /app/bin/Ryujinx.sh
     mkdir -p /app/lib/ffmpeg
     install -Dm644 $FLATPAK_ID.appdata.xml /app/share/metainfo/$FLATPAK_ID.appdata.xml
